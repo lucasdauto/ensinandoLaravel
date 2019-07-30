@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index.inicial');
+})->name('inicio');
+
+Route::prefix('roupas')->group(function (){
+    Route::get('/lista','roupasController@index')->name('roupas.lista');
+    Route::get('/cadastro','roupasController@create')->name('roupas.cadastro');
 });
